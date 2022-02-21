@@ -1,3 +1,5 @@
+function jugar() {
+    
 console.log("Iniciando ");
 
 alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
@@ -21,6 +23,17 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
         resultadoVos = resultadoVos + 1;
         console.log("Ganaste un punto"); 
         return resultadoVos;
+    }
+
+    // verificar botones
+    function emergentes(resultado){
+        if (resultado == null ||  resultado == "") {
+             return seguirJugando();
+        } else {
+            return resultado;
+            
+        }
+        
     }
 
     // preguntamos si seguir jugando
@@ -58,10 +71,16 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
     let resultadoVos = 0;
     let resultadoPc = 0;
     let vuelta = 0;
+    let dataPc = 0;
+    let data = 0;
 
     let dataDos = prompt("ingresa tu nombre");
+    emergentes(dataDos);
+    
+    if (vuelta ==  0) {
     alert("Hola!!! soy muy bueno en este juego (La Pc), "+ dataDos +" vamos a la batalla ");
     console.log("Bienvenido "+ dataDos); 
+    }
 
     // bucle para poder seguir jugando
     while (vuelta < 3) {
@@ -70,11 +89,15 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
         vuelta = vuelta + 1;
 
         // calculo el numero de la pc entre 1 y 3
-        let dataPc = numeroski(1,3); 
+        dataPc = numeroski(1,3); 
         
         // seleccionamos la jugada
-        let data = parseFloat(prompt("Ingresa tu jugada en números: \n 1 = Piedra \n 2 = Papel \n 3 = Tijera"));
+        data = prompt("Ingresa tu jugada en números: \n 1 = Piedra \n 2 = Papel \n 3 = Tijera");
+        emergentes(data);
+        data = parseFloat(data);
 
+        if (data != null || data != "") {
+            
                 // mostramos que se eligio 
                 switch (data) {
                     case 1:
@@ -88,8 +111,6 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
                     case 3:
                         alert("Vamos por la tijera"); 
                         console.log("Vamos por la tijera");  
-                        break;
-                    default:
                         break;
                 }
 
@@ -106,8 +127,6 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
                     case 3:
                         alert("La compu eligio tijera"); 
                         console.log("La compu eligio tijera"); 
-                        break;
-                    default:
                         break;
                 }
 
@@ -152,7 +171,8 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
 
     alert("Resultado de esta vuelta: \n "+ dataDos +": " + resultadoVos + " \n Pc: " + resultadoPc);
      
- 
     final();
 }
+}
 
+}
