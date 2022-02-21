@@ -25,7 +25,7 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
 
     // preguntamos si seguir jugando
     function seguirJugando() {
-        let ok = prompt("Queres seguir jugando ? \n Si o No").toLowerCase();
+        let ok = prompt("Quieres seguir jugando ? \n Si o No").toLowerCase();
         if (ok == "si") {
             vuelta = 0;
             resultadoVos = 0;
@@ -42,7 +42,7 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
     function final() {
 
         if (resultadoPc == 2) {
-            alert("Lo siento "+ dataDos +" te gane: \n atte la pc");
+            alert("Lo siento "+ dataDos +" te gane: \n Atte: la pc");
             console.log("Gano la pc"); 
             seguirJugando();
         } else if(resultadoVos == 2){
@@ -60,7 +60,7 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
     let vuelta = 0;
 
     let dataDos = prompt("ingresa tu nombre");
-    alert("Hola!!! soy muy bueno en este juego (La Pc), "+ dataDos +" si me ganas es de suerte, vamos a la batalla ");
+    alert("Hola!!! soy muy bueno en este juego (La Pc), "+ dataDos +" vamos a la batalla ");
     console.log("Bienvenido "+ dataDos); 
 
     // bucle para poder seguir jugando
@@ -82,8 +82,8 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
                         console.log("Vamos por la piedra"); 
                         break;
                     case 2:
-                        alert("Vamos por la papel"); 
-                        console.log("Vamos por la papel"); 
+                        alert("Vamos por el papel"); 
+                        console.log("Vamos por el papel"); 
                         break;
                     case 3:
                         alert("Vamos por la tijera"); 
@@ -119,7 +119,7 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
 
                     } else if (dataPc === 3 && data == 2) {
                         alert("Gano la pc con su tijera"); 
-                        console.log("gano la pc con su tijera"); 
+                        console.log("Gano la pc con su tijera"); 
                         sumarPuntoPc();
 
                         } else if (dataPc == 3 && data === 1) {
