@@ -5,14 +5,15 @@ console.log("Iniciando ");
 alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera: Incorporar Arrays");
 
       // variables del juego
-      const resultadoVos = [0];
-      const resultadoPc = [0];
+      const resultadoVos = [0]; // array de las partidas
+      const resultadoPc = [0];  // array de las partidas
       let valorPc = 0;
       let valorVos = 0;
       let vuelta = 0;
       let dataDos = 0;
       let dataPc = 0;
       let data = 0;
+      let ok;
 
     // calculamos un número aleatorio  para la pc
     function numeroski(min, max) {
@@ -21,25 +22,23 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera: Incorporar Arrays"
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
-    // sumamos puntos
+    // sumamos puntos al ARRAY
     function sumarPuntoPc() {
         resultadoPc.push(+1);
         valorPc = resultadoPc.reduce(
-            (antes, actual) => antes + actual,
-            0);
+            (antes, actual) => antes + actual,0);
             console.log("La PC gano un punto"); 
             return valorPc;
     }
    
 
-    // sumamos puntos
+    // sumamos puntos al ARRAY
     function sumarPuntoVos() {
         resultadoVos.push(+1);
         valorVos = resultadoVos.reduce(
-        (antes, actual) => antes + actual,
-        0);
-        console.log("La PC gano un punto"); 
-        return valorVos;
+            (antes, actual) => antes + actual,0);
+            console.log("La PC gano un punto"); 
+            return valorVos;
     }
 
     // verificar botones
@@ -55,11 +54,13 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera: Incorporar Arrays"
 
     // preguntamos si seguir jugando
     function seguirJugando() {
-        let ok = prompt("Quieres seguir jugando ? \n Si o No").toLowerCase();
+        ok = prompt("Quieres seguir jugando ? \n Si o No").toLowerCase();
         if (ok == "si") {
             vuelta = 0;
-            resultadoVos = [];
-            resultadoPc = [];
+            resultadoVos.splice(0, resultadoVos.length);
+            resultadoPc.splice(0, resultadoPc.length);
+            valorPc = 0;
+            valorVos = 0;
             console.log("Seleccionaste seguir jugando"); 
         } else {
             alert("Fue un placer jugar con vos perreke");
