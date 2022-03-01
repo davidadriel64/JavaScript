@@ -1,12 +1,14 @@
-function jugar() {
+function arrayok() {
     
 console.log("Iniciando ");
 
-alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
+alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera: Incorporar Arrays");
 
       // variables del juego
-      let resultadoVos = 0;
-      let resultadoPc = 0;
+      const resultadoVos = [0];
+      const resultadoPc = [0];
+      let valorPc = 0;
+      let valorVos = 0;
       let vuelta = 0;
       let dataDos = 0;
       let dataPc = 0;
@@ -21,16 +23,23 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
 
     // sumamos puntos
     function sumarPuntoPc() {
-        resultadoPc = resultadoPc + 1;
-        console.log("La PC gano un punto"); 
-        return resultadoPc;
+        resultadoPc.push(+1);
+        valorPc = resultadoPc.reduce(
+            (antes, actual) => antes + actual,
+            0);
+            console.log("La PC gano un punto"); 
+            return valorPc;
     }
+   
 
     // sumamos puntos
     function sumarPuntoVos() {
-        resultadoVos = resultadoVos + 1;
-        console.log("Ganaste un punto"); 
-        return resultadoVos;
+        resultadoVos.push(+1);
+        valorVos = resultadoVos.reduce(
+        (antes, actual) => antes + actual,
+        0);
+        console.log("La PC gano un punto"); 
+        return valorVos;
     }
 
     // verificar botones
@@ -49,8 +58,8 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
         let ok = prompt("Quieres seguir jugando ? \n Si o No").toLowerCase();
         if (ok == "si") {
             vuelta = 0;
-            resultadoVos = 0;
-            resultadoPc = 0;
+            resultadoVos = [];
+            resultadoPc = [];
             console.log("Seleccionaste seguir jugando"); 
         } else {
             alert("Fue un placer jugar con vos perreke");
@@ -62,11 +71,11 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
     // buscamos al ganador
     function final() {
 
-        if (resultadoPc == 2) {
+        if (valorPc == 2) {
             alert("Lo siento "+ dataDos +" te gane: \n Atte: la pc");
             console.log("Gano la pc"); 
             seguirJugando();
-        } else if(resultadoVos == 2){
+        } else if(valorVos == 2){
             alert("oh Rayos, parece que me ganaste "+ dataDos);
             console.log("Enhorabuena! ganaste perreke"); 
             seguirJugando();
@@ -171,7 +180,7 @@ alert("Ejercicio desafio: \n Juego de Piedra, papel y tijera");
                 }
 
 
-         alert("Resultado de esta vuelta: \n "+ dataDos +": " + resultadoVos + " \n Pc: " + resultadoPc);
+         alert("Resultado de esta vuelta: \n "+ dataDos +": " + valorVos + " \n Pc: " + valorPc);
      
         final();
         }
